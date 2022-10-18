@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,14 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_ikeltiSarasa = new System.Windows.Forms.Button();
+            this.prekesRepozitorijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prekesRepozitorijaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.prekiuListasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekesRepozitorijaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekesRepozitorijaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekiuListasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -138,19 +146,16 @@
             this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(12, 116);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(659, 322);
             this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Barkdodas";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             this.Column1.Width = 150;
             // 
             // Column2
@@ -158,7 +163,6 @@
             this.Column2.HeaderText = "Pavadinimas";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
             // Column3
@@ -166,7 +170,6 @@
             this.Column3.HeaderText = "Kaina";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
             // 
             // Column4
@@ -174,14 +177,37 @@
             this.Column4.HeaderText = "Kategorija";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Width = 150;
+            // 
+            // button_ikeltiSarasa
+            // 
+            this.button_ikeltiSarasa.Location = new System.Drawing.Point(677, 224);
+            this.button_ikeltiSarasa.Name = "button_ikeltiSarasa";
+            this.button_ikeltiSarasa.Size = new System.Drawing.Size(94, 56);
+            this.button_ikeltiSarasa.TabIndex = 11;
+            this.button_ikeltiSarasa.Text = "Įkelti Sarašą";
+            this.button_ikeltiSarasa.UseVisualStyleBackColor = true;
+            this.button_ikeltiSarasa.Click += new System.EventHandler(this.button_ikeltiSarasa_Click);
+            // 
+            // prekesRepozitorijaBindingSource
+            // 
+            this.prekesRepozitorijaBindingSource.DataSource = typeof(KasosAparatoSistema.Repozitorijos.PrekesRepozitorija);
+            // 
+            // prekesRepozitorijaBindingSource1
+            // 
+            this.prekesRepozitorijaBindingSource1.DataSource = typeof(KasosAparatoSistema.Repozitorijos.PrekesRepozitorija);
+            // 
+            // prekiuListasBindingSource
+            // 
+            this.prekiuListasBindingSource.DataMember = "PrekiuListas";
+            this.prekiuListasBindingSource.DataSource = this.prekesRepozitorijaBindingSource;
             // 
             // KasosAparatoValdymas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_ikeltiSarasa);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txt_pavadinimas);
             this.Controls.Add(this.txt_kaina);
@@ -196,6 +222,9 @@
             this.Name = "KasosAparatoValdymas";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekesRepozitorijaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekesRepozitorijaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prekiuListasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +247,9 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private Button button_ikeltiSarasa;
+        private BindingSource prekesRepozitorijaBindingSource;
+        private BindingSource prekesRepozitorijaBindingSource1;
+        private BindingSource prekiuListasBindingSource;
     }
 }

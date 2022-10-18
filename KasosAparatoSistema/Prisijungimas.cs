@@ -22,6 +22,8 @@ namespace KasosAparatoSistema
 
         private void buttonPrisijungti_Click(object sender, EventArgs e)
         {
+            var prekesRepozitorija = new PrekesRepozitorija();
+
             string prisijungimoVardas = tbVartotojoVardas.Text;
             string slaptazodis = tbSlaptazodis.Text;
             var _darbuotojasRepozitorija = new DarbuotojasRepozitorija();
@@ -31,9 +33,11 @@ namespace KasosAparatoSistema
                 string reikalingasSlaptazodis = _darbuotojasRepozitorija.Retrieve(prisijungimoVardas).Slaptazodis.ToString();
                 if (slaptazodis == reikalingasSlaptazodis)
                 {
+                    Pardavimai pardavimai = new Pardavimai();
                     KasosAparatoValdymas nextForm = new KasosAparatoValdymas();
                     this.Hide();
-                    nextForm.ShowDialog();
+                    //nextForm.ShowDialog();
+                    pardavimai.ShowDialog();
                     this.Close();
 
                 }

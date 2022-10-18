@@ -12,7 +12,8 @@ namespace KasosAparatoSistema.Repozitorijos
         public List<Prekes> PrekiuListas { get; set; }
 
         public PrekesRepozitorija()
-        {
+
+        {   PrekiuListas = new List<Prekes>();
             string path = @"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Prekes.txt";
             string[] prekes = File.ReadAllLines(path);
             foreach (string preke in prekes)
@@ -34,6 +35,11 @@ namespace KasosAparatoSistema.Repozitorijos
         public Prekes Retrieve(string kategorija)
         {
             return PrekiuListas.Where(x => x.Kategorija == kategorija).FirstOrDefault();
+        }
+
+        public Prekes Retrieve(long barkodas)
+        {
+            return PrekiuListas.Where(x => x.Barkodas == barkodas).FirstOrDefault();
         }
     }
     

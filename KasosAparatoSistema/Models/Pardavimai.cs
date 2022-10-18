@@ -13,7 +13,7 @@ namespace KasosAparatoSistema.Models
         public string PrekėsPavadinimas { get; set; }
         public int PrekesKiekis { get; set; }
         public double PardavimoSuma { get; set; }
-
+        public List<Pardavimai> ParduotosPrekes { get; set; }
         public Pardavimai(int pardavimoId, DateTime kadaParduota, string prekėsPavadinimas, int prekesKiekis, double pardavimoSuma)
         {
             PardavimoId = pardavimoId;
