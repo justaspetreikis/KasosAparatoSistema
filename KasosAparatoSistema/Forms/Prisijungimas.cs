@@ -1,26 +1,19 @@
 using KasosAparatoSistema.Repozitorijos;
 using KasosAparatoSistema.Models;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
+using KasosAparatoSistema.Forms;
 
 namespace KasosAparatoSistema
 {
     public partial class Prisijungimas : Form
     {
+        public static string VartotojoId = ""; 
         public Prisijungimas()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_VartotojoVardas(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonPrisijungti_Click(object sender, EventArgs e)
+        public void buttonPrisijungti_Click(object sender, EventArgs e)
         {
             var prekesRepozitorija = new PrekesRepozitorija();
 
@@ -33,11 +26,14 @@ namespace KasosAparatoSistema
                 string reikalingasSlaptazodis = _darbuotojasRepozitorija.Retrieve(prisijungimoVardas).Slaptazodis.ToString();
                 if (slaptazodis == reikalingasSlaptazodis)
                 {
-                    Pardavimai pardavimai = new Pardavimai();
-                    KasosAparatoValdymas nextForm = new KasosAparatoValdymas();
+                    VartotojoId = tbVartotojoVardas.Text.ToString();
+                    //Pardavimai pardavimai = new Pardavimai();
+                    //PrekiuIvedimas prekiuPridejimas = new PrekiuIvedimas();
+                    var pasirinkimai = new form_pasirinkimai();
                     this.Hide();
-                    //nextForm.ShowDialog();
-                    pardavimai.ShowDialog();
+                    pasirinkimai.ShowDialog();
+                    //prekiuPridejimas.ShowDialog();
+                    //pardavimai.ShowDialog();
                     this.Close();
 
                 }
@@ -51,12 +47,12 @@ namespace KasosAparatoSistema
             {
                 MessageBox.Show("blogas prisijungimas arba slaptaþodis");
             }
+
             
         }
-
         private void Prisijungimas_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -18,12 +18,13 @@ namespace KasosAparatoSistema.Repozitorijos
             string[] prekes = File.ReadAllLines(path);
             foreach (string preke in prekes)
             {
-                long prekesbarkodas = long.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0]);
-                string prekesPavadinimas =preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1];
-                double prekesKaina = double.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2]);
-                string prekesKategorija = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[3];
+                string darbuotojoVardas = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0];
+                long prekesbarkodas = long.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1]);
+                string prekesPavadinimas =preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2];
+                double prekesKaina = double.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[3]);
+                string prekesKategorija = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[4];
 
-                PrekiuListas.Add(new Prekes(prekesbarkodas, prekesPavadinimas, prekesKaina, prekesKategorija));
+                PrekiuListas.Add(new Prekes(darbuotojoVardas, prekesbarkodas, prekesPavadinimas, prekesKaina, prekesKategorija));
             }
 
         }

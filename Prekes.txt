@@ -1,4 +1,6 @@
-4771033821451 Avokadas 1 Daržovės
-4771658921422 Duona 1 Bakalėja
-4771899843325 LedaiBaltija 1 Šaldytos
-1 as 1,2 bak
+admin 1 Batonas 1,99 Bakaleja
+admin 123456789 Litras 1,69 Gėrimai
+admin 2 Duona 2,5 Bakaleja
+admin 4 Agurkai 2,45 Darzoves
+admin 5 Bandele 1,66 Bakaleja
+admin 6 Pomidorai 1,99 Vaisiai

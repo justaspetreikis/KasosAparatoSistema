@@ -33,6 +33,7 @@
             this.tbSlaptazodis = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button_registracija = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPrisijungti
@@ -51,7 +52,6 @@
             this.tbVartotojoVardas.Name = "tbVartotojoVardas";
             this.tbVartotojoVardas.Size = new System.Drawing.Size(203, 27);
             this.tbVartotojoVardas.TabIndex = 1;
-            this.tbVartotojoVardas.TextChanged += new System.EventHandler(this.textBox1_VartotojoVardas);
             // 
             // tbSlaptazodis
             // 
@@ -67,7 +67,6 @@
             this.label1.Size = new System.Drawing.Size(130, 27);
             this.label1.TabIndex = 3;
             this.label1.Text = "Vartotojo vardas";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -77,18 +76,28 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Slaptažodis";
             // 
+            // button_registracija
+            // 
+            this.button_registracija.Location = new System.Drawing.Point(404, 247);
+            this.button_registracija.Name = "button_registracija";
+            this.button_registracija.Size = new System.Drawing.Size(94, 29);
+            this.button_registracija.TabIndex = 5;
+            this.button_registracija.Text = "Registracija";
+            this.button_registracija.UseVisualStyleBackColor = true;
+            // 
             // Prisijungimas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 565);
+            this.Controls.Add(this.button_registracija);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSlaptazodis);
             this.Controls.Add(this.tbVartotojoVardas);
             this.Controls.Add(this.buttonPrisijungti);
             this.Name = "Prisijungimas";
-            this.Text = "Form1";
+            this.Text = "Prisijungimas";
             this.Load += new System.EventHandler(this.Prisijungimas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -102,5 +111,6 @@
         private TextBox tbSlaptazodis;
         private Label label1;
         private Label label2;
+        private Button button_registracija;
     }
 }
