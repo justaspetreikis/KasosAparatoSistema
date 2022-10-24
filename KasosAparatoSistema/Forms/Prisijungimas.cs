@@ -15,10 +15,26 @@ namespace KasosAparatoSistema
         }
         public void buttonPrisijungti_Click(object sender, EventArgs e)
         {
-            string prisijungimoVardas = tbVartotojoVardas.Text;
-            string slaptazodis = tbSlaptazodis.Text;
+            
+            PrisijungimoDuomenuPatikrinimas(tbVartotojoVardas.Text, tbSlaptazodis.Text);
+            
+        }
+        private void Prisijungimas_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button_registracija_Click(object sender, EventArgs e)
+        {
+            var registracija = new Registracija();
+            this.Hide();
+            registracija.ShowDialog();
+          
+        }
+        private void PrisijungimoDuomenuPatikrinimas(string prisijungimoVardas, string slaptazodis)
+        {
             var _darbuotojasRepozitorija = new DarbuotojasRepozitorija();
-            var darbuotojuVardai = _darbuotojasRepozitorija.Retrieve();  
+            var darbuotojuVardai = _darbuotojasRepozitorija.Retrieve();
             if (darbuotojuVardai.Any(x => x.Vardas == prisijungimoVardas))
             {
                 string reikalingasSlaptazodis = _darbuotojasRepozitorija.Retrieve(prisijungimoVardas).Slaptazodis.ToString();
@@ -40,20 +56,6 @@ namespace KasosAparatoSistema
             {
                 MessageBox.Show("blogas prisijungimas arba slaptaþodis");
             }
-
-            
-        }
-        private void Prisijungimas_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button_registracija_Click(object sender, EventArgs e)
-        {
-            var registracija = new Registracija();
-            this.Hide();
-            registracija.ShowDialog();
-          
         }
     }
 }
