@@ -1,11 +1,13 @@
 admin 1 Batonas 1,99 Bakaleja
 admin 123456789 Litras 1,69 Gėrimai
-admin 2 Duona 2,5 Bakaleja
 admin 6 Pomidorai 1,99 Vaisiai
 test 4 Jogurtas 2,44 Pienas
 admin 5 Ryžiai 2,44 Bakaleja
 Justas 9 Grikiai 2,66 Bakaleja
-Jonas1 99 kriaušė 0,6 Vaisiai
 admin 101 Kefyras 1,55 Pienas
 admin 999 Bandele 2,55 Bakaleja
 Jonelis 11 Duonele 2,33 Bakaleja
+admin 6666 Sesetas 6,66 Vaisiai
+test 4770166219528 VanilinisPlombyras 0,44 Ledai
+test 12345 ŠokoladinisPlombyras 0,46 Ledai
+Rokas 3 Jore 2,55 Bakaleja

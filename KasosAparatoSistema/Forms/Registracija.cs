@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -42,16 +43,39 @@ namespace KasosAparatoSistema.Forms
         
         private void NaujaRegistracija(string naujasPrisijungimoVardas, string naujasSlaptazodis, string pakartotiSlaptazodi)
         {
+
             var darbuotojuRepozitorija = new DarbuotojasRepozitorija();
             var darbuotojuListas = darbuotojuRepozitorija.Retrieve();
             int paskutinioDarbuotojoId = darbuotojuListas.Max(r => r.Id);
             int id = paskutinioDarbuotojoId + 1;
+
+            int kiekZodziuPrisijungimoVarde = naujasPrisijungimoVardas.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count();
+            int kiekZodziuSlaptazodyje = naujasSlaptazodis.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count();
+            int kiekZodziupakartotameSlaptazodyje = pakartotiSlaptazodi.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count();
+            if (kiekZodziuPrisijungimoVarde > 1 || kiekZodziuSlaptazodyje > 1 || kiekZodziupakartotameSlaptazodyje > 1)
+            {
+                MessageBox.Show("Prisijungimo vardas ir slaptažodis turi būti sudarytas iš vieno žodžio");
+                return;
+            }
+            if(naujasPrisijungimoVardas.EndsWith(" ") || naujasSlaptazodis.EndsWith(" ") || pakartotiSlaptazodi.EndsWith(" ")
+                || naujasPrisijungimoVardas.StartsWith(" ") || naujasSlaptazodis.StartsWith(" ") || pakartotiSlaptazodi.StartsWith(" "))
+            {
+                MessageBox.Show("Patikrinkite ar nepalikote tarpų");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(naujasPrisijungimoVardas) || String.IsNullOrEmpty(naujasSlaptazodis) || String.IsNullOrEmpty(pakartotiSlaptazodi))
+            {
+                MessageBox.Show("Prašome užpildyti visus reikalingus duomenis");
+                return;
+            }
 
             if (darbuotojuListas.Any(a => a.Vardas == naujasPrisijungimoVardas))
             {
                 MessageBox.Show("Vartotojas su tokiu vardu jau egzistuoja");
                 return;
             }
+
             if (naujasSlaptazodis != pakartotiSlaptazodi)
             {
                 MessageBox.Show("Blogai įvestas slaptažodis");

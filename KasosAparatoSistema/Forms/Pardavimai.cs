@@ -29,9 +29,15 @@ namespace KasosAparatoSistema
                 MessageBox.Show("Įveskite barkodą");
                 return;
             }
-            long barkodas = long.Parse(tb_iveskiteBarkoda.Text);
+            long barkodas;
+            bool arGeraiIvestasBarkodas = long.TryParse(tb_iveskiteBarkoda.Text, out barkodas);
             var prekesRepozitorija = new PrekesRepozitorija();
             var prekesInformacija = prekesRepozitorija.Retrieve(barkodas); 
+            if(arGeraiIvestasBarkodas == false)
+            {
+                MessageBox.Show("Barkodo paieškoje nurodykite barkodo skaičius");
+                return;
+            }
             if (prekesInformacija == null)
             {
                 MessageBox.Show("Prekė nerasta");
@@ -48,6 +54,8 @@ namespace KasosAparatoSistema
 
         private void button_prideti_Click(object sender, EventArgs e)
         {
+            string prisijungesDarbuotojas = Prisijungimas.VartotojoId;
+
             if (string.IsNullOrEmpty(tb_vienetuKiekis.Text))
             {
                 return;
@@ -63,9 +71,9 @@ namespace KasosAparatoSistema
             dataGridViewPpardavimai.Rows.Add(clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString());
 
             File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\VisiPardavimai.txt",
-            string.Format("{0} {1} {2} {3} {4}\n",clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString()));
+            string.Format("{0} {1} {2} {3} {4} {5}\n",clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString(), prisijungesDarbuotojas));
             File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Pardavimai" + DateTime.Today.ToString("yyyyMMdd") + ".txt",
-            string.Format("{0} {1} {2} {3} {4}\n", clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString())) ;
+            string.Format("{0} {1} {2} {3} {4} {5}\n", clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString(), prisijungesDarbuotojas)) ;
             File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Suma.txt",
             String.Format("{0}\n", (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString()));
 
@@ -95,11 +103,6 @@ namespace KasosAparatoSistema
 
         }
 
-        private void tb_suma_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button_Baigti_Click(object sender, EventArgs e)
         {
             while (dataGridViewPpardavimai.Rows.Count > 0)
@@ -108,16 +111,6 @@ namespace KasosAparatoSistema
             }
             File.Delete(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Suma.txt");
             tb_suma.Clear();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button_gristi_Click(object sender, EventArgs e)
@@ -132,9 +125,5 @@ namespace KasosAparatoSistema
                 tb_vartotojas.Text = Prisijungimas.VartotojoId;
         }
 
-        private void tb_iveskiteBarkoda_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -25,7 +25,7 @@ namespace KasosAparatoSistema
         {
             InitializeComponent();
         }
-        private void button_prideti_Click(object sender, EventArgs e) //leisti ivesti tik gerus duomenis
+        private void button_prideti_Click(object sender, EventArgs e) 
         {
             long barkodas;
             double kaina;
@@ -34,6 +34,7 @@ namespace KasosAparatoSistema
             bool ivestaGeraKaina = double.TryParse(txt_kaina.Text, out kaina);
             bool ivestasGerasBarkodas = long.TryParse(txt_barkodas.Text, out barkodas);
             bool barkodasEgzistuoja = prekiuListas.Any(a => a.Barkodas == barkodas);
+            int kiekZodziuPavadinime = txt_pavadinimas.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Count();
             if (ivestasGerasBarkodas == false)
             {
                 MessageBox.Show("Blogai įvestas barkodas");
@@ -49,6 +50,12 @@ namespace KasosAparatoSistema
             if (ivestaGeraKaina == false)
             {
                 MessageBox.Show("Blogai nurodyta prekės kaina (kainai įvesti naudojamas kablelis)");
+                return;
+            }
+            
+            if (kiekZodziuPavadinime > 1)
+            {
+                MessageBox.Show("Prekės pavadinimas turi būti sudarytas iš vieno žodžio");
                 return;
             }
 
@@ -106,9 +113,5 @@ namespace KasosAparatoSistema
             pasirinkimai.ShowDialog();
         }
 
-        private void txt_barkodas_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

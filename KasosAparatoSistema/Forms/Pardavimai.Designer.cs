@@ -63,7 +63,6 @@
             this.tb_iveskiteBarkoda.Name = "tb_iveskiteBarkoda";
             this.tb_iveskiteBarkoda.Size = new System.Drawing.Size(203, 27);
             this.tb_iveskiteBarkoda.TabIndex = 0;
-            this.tb_iveskiteBarkoda.TextChanged += new System.EventHandler(this.tb_iveskiteBarkoda_TextChanged);
             // 
             // label_iveskitBarkoda
             // 
@@ -169,7 +168,6 @@
             this.tb_suma.ReadOnly = true;
             this.tb_suma.Size = new System.Drawing.Size(64, 27);
             this.tb_suma.TabIndex = 14;
-            this.tb_suma.TextChanged += new System.EventHandler(this.tb_suma_TextChanged);
             // 
             // button_pirkti
             // 
@@ -207,7 +205,6 @@
             this.dataGridViewPpardavimai.RowTemplate.Height = 29;
             this.dataGridViewPpardavimai.Size = new System.Drawing.Size(626, 188);
             this.dataGridViewPpardavimai.TabIndex = 16;
-            this.dataGridViewPpardavimai.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 

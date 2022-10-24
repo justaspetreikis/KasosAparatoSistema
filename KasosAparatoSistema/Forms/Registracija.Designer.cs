@@ -40,7 +40,7 @@
             // 
             // button_registruotis
             // 
-            this.button_registruotis.Location = new System.Drawing.Point(266, 228);
+            this.button_registruotis.Location = new System.Drawing.Point(239, 228);
             this.button_registruotis.Name = "button_registruotis";
             this.button_registruotis.Size = new System.Drawing.Size(117, 29);
             this.button_registruotis.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // button_grizti
             // 
-            this.button_grizti.Location = new System.Drawing.Point(389, 228);
+            this.button_grizti.Location = new System.Drawing.Point(362, 228);
             this.button_grizti.Name = "button_grizti";
             this.button_grizti.Size = new System.Drawing.Size(117, 29);
             this.button_grizti.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // label_VartotojoVardas
             // 
-            this.label_VartotojoVardas.Location = new System.Drawing.Point(121, 96);
+            this.label_VartotojoVardas.Location = new System.Drawing.Point(73, 96);
             this.label_VartotojoVardas.Name = "label_VartotojoVardas";
             this.label_VartotojoVardas.Size = new System.Drawing.Size(144, 23);
             this.label_VartotojoVardas.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // label_IvestiSlaptazodo
             // 
-            this.label_IvestiSlaptazodo.Location = new System.Drawing.Point(121, 136);
+            this.label_IvestiSlaptazodo.Location = new System.Drawing.Point(73, 136);
             this.label_IvestiSlaptazodo.Name = "label_IvestiSlaptazodo";
             this.label_IvestiSlaptazodo.Size = new System.Drawing.Size(144, 23);
             this.label_IvestiSlaptazodo.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // label_PakartotiSlaptazodi
             // 
-            this.label_PakartotiSlaptazodi.Location = new System.Drawing.Point(121, 177);
+            this.label_PakartotiSlaptazodi.Location = new System.Drawing.Point(73, 177);
             this.label_PakartotiSlaptazodi.Name = "label_PakartotiSlaptazodi";
             this.label_PakartotiSlaptazodi.Size = new System.Drawing.Size(144, 23);
             this.label_PakartotiSlaptazodi.TabIndex = 4;
@@ -84,21 +84,21 @@
             // 
             // tb_naujasPrisijungimoVardas
             // 
-            this.tb_naujasPrisijungimoVardas.Location = new System.Drawing.Point(266, 96);
+            this.tb_naujasPrisijungimoVardas.Location = new System.Drawing.Point(239, 96);
             this.tb_naujasPrisijungimoVardas.Name = "tb_naujasPrisijungimoVardas";
             this.tb_naujasPrisijungimoVardas.Size = new System.Drawing.Size(240, 27);
             this.tb_naujasPrisijungimoVardas.TabIndex = 5;
             // 
             // tb_NaujasSlaptazodis
             // 
-            this.tb_NaujasSlaptazodis.Location = new System.Drawing.Point(266, 136);
+            this.tb_NaujasSlaptazodis.Location = new System.Drawing.Point(239, 133);
             this.tb_NaujasSlaptazodis.Name = "tb_NaujasSlaptazodis";
             this.tb_NaujasSlaptazodis.Size = new System.Drawing.Size(240, 27);
             this.tb_NaujasSlaptazodis.TabIndex = 6;
             // 
             // tb_PakartotiSlaptazodi
             // 
-            this.tb_PakartotiSlaptazodi.Location = new System.Drawing.Point(266, 177);
+            this.tb_PakartotiSlaptazodi.Location = new System.Drawing.Point(239, 173);
             this.tb_PakartotiSlaptazodi.Name = "tb_PakartotiSlaptazodi";
             this.tb_PakartotiSlaptazodi.Size = new System.Drawing.Size(240, 27);
             this.tb_PakartotiSlaptazodi.TabIndex = 7;
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(594, 406);
             this.Controls.Add(this.tb_PakartotiSlaptazodi);
             this.Controls.Add(this.tb_NaujasSlaptazodis);
             this.Controls.Add(this.tb_naujasPrisijungimoVardas);

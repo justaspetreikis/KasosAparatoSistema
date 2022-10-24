@@ -54,8 +54,9 @@ namespace KasosAparatoSistema
             }
             else
             {
-                MessageBox.Show("blogas prisijungimas arba slaptaþodis");
+                MessageBox.Show("blogas vartotojo vardas arba slaptaþodis");
             }
         }
+
     }
 }

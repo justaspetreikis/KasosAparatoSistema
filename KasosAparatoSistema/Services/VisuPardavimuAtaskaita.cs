@@ -24,11 +24,12 @@ namespace KasosAparatoSistema.Services
                     "</style>" +
                     "<table class=\"praejimoInfo\">" +
                     "<tbody><tr>" +
-                    "<td class=\"header\" colspan=\"6\">Visų Pardavimų Ataskaita</td>" +
+                    "<td class=\"header\" colspan=\"6\">Vienos Dienos Pardavimų Ataskaita</td>" +
                     "</tr>" +
                     "<tr class=\"mainRow\">" +
                     "<td>Diena</td>" +
                     "<td>Laikas</td>" +
+                    "<td>Darbuotojas</td>" +
                     "<td>Prekė</td>" +
                     "<td>Kiekis</td>" +
                     "<td>Suma</td>" +
@@ -38,6 +39,7 @@ namespace KasosAparatoSistema.Services
                     pardavimuAtaskaita = pardavimuAtaskaita + ($"<tr class=\"altRow\">" +
                         $"<td>{pardavimas.KadaParduotaDiena.ToShortDateString()}</td>" +
                         $"<td>{pardavimas.KadaParduotaLaikas.ToShortTimeString()}</td>" +
+                        $"<td>{pardavimas.PrisijungesDarbuotojas}</td>" +
                         $"<td>{pardavimas.PrekėsPavadinimas}</td>" +
                         $"<td>{pardavimas.PrekesKiekis}</td>" +
                         $"<td>{pardavimas.PardavimoSuma}</td>" +
@@ -63,6 +65,7 @@ namespace KasosAparatoSistema.Services
                 "<tr class=\"mainRow\">" +
                 "<td>Diena</td>" +
                 "<td>Laikas</td>" +
+                "<td>Darbuotojas</td>" +
                 "<td>Prekė</td>" +
                 "<td>Kiekis</td>" +
                 "<td>Suma</td>" +
@@ -72,6 +75,7 @@ namespace KasosAparatoSistema.Services
                     pardavimuAtaskaita = pardavimuAtaskaita + ($"<tr class=\"altRow\">" +
                         $"<td>{pardavimas.KadaParduotaDiena.ToShortDateString()}</td>" +
                         $"<td>{pardavimas.KadaParduotaLaikas.ToShortTimeString()}</td>" +
+                        $"<td>{pardavimas.PrisijungesDarbuotojas}</td>" +
                         $"<td>{pardavimas.PrekėsPavadinimas}</td>" +
                         $"<td>{pardavimas.PrekesKiekis}</td>" +
                         $"<td>{pardavimas.PardavimoSuma}</td>" +

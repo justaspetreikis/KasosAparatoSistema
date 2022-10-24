@@ -115,7 +115,6 @@
             this.txt_barkodas.Name = "txt_barkodas";
             this.txt_barkodas.Size = new System.Drawing.Size(148, 27);
             this.txt_barkodas.TabIndex = 6;
-            this.txt_barkodas.TextChanged += new System.EventHandler(this.txt_barkodas_TextChanged);
             // 
             // txt_kaina
             // 

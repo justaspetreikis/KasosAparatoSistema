@@ -14,19 +14,21 @@ namespace KasosAparatoSistema.Models
         public int PrekesKiekis { get; set; }
         public double PardavimoSuma { get; set; }
         public List<PrekiuPardavimai> ParduotosPrekes { get; set; }
+        public string PrisijungesDarbuotojas { get; set; }
 
         public PrekiuPardavimai()
         {
 
         }
 
-        public PrekiuPardavimai(DateTime kadaParduotaDiena, DateTime kadaParduotaLaikas, string prekėsPavadinimas, int prekesKiekis, double pardavimoSuma)
+        public PrekiuPardavimai(DateTime kadaParduotaDiena, DateTime kadaParduotaLaikas, string prekėsPavadinimas, int prekesKiekis, double pardavimoSuma, string prisjungesDarbuotojas)
         {
             KadaParduotaDiena = kadaParduotaDiena;
             KadaParduotaLaikas = kadaParduotaLaikas;
             PrekėsPavadinimas = prekėsPavadinimas;
             PrekesKiekis = prekesKiekis;
             PardavimoSuma = pardavimoSuma;
+            PrisijungesDarbuotojas = prisjungesDarbuotojas;
         }
     }
 }

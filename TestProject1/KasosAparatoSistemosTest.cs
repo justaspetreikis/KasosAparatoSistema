@@ -16,7 +16,6 @@ namespace TestProject1
             var expected = "Duona";
 
             //Act
-
             var actual = (prekesRepozitoria.Retrieve(barkodas).Pavadinimas).ToString();
 
             // Assert
@@ -25,5 +24,20 @@ namespace TestProject1
             Assert.IsType<string>(actual);
         }
 
+        [Fact]
+        public void DarbuotojasRepozitorija_RetrieveMetodas_IvestasPrisijungimoVardasGrazinaTeisingaSlaptazodi()
+        {
+            // Arrange
+            string darbuotojoVardas = "admin";
+            DarbuotojasRepozitorija darbuotojoRepozitorija = new DarbuotojasRepozitorija();
+            var expected = "admin";        
+
+            //Act
+            var actual = (darbuotojoRepozitorija.Retrieve(darbuotojoVardas).Slaptazodis).ToString();
+
+            // Assert
+            Assert.Equal(expected, actual);
+
+        }
     }
 }

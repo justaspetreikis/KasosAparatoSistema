@@ -26,8 +26,9 @@ namespace KasosAparatoSistema.Repozitorijos
                 string pavadiniams = pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2];
                 int kiekis = int.Parse(pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[4]);
                 double suma = double.Parse(pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[5]);
+                string darbuotojas = pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[6];
 
-                VisuPardavimuListas.Add(new PrekiuPardavimai(diena, laikas, pavadiniams, kiekis, suma));
+                VisuPardavimuListas.Add(new PrekiuPardavimai(diena, laikas, pavadiniams, kiekis, suma, darbuotojas));
             }
             foreach (string pardavimas in dienosPardavimai)
             {
@@ -36,8 +37,9 @@ namespace KasosAparatoSistema.Repozitorijos
                 string pavadiniams = pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2];
                 int kiekis = int.Parse(pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[4]);
                 double suma = double.Parse(pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[5]);
+                string darbuotojas = pardavimas.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[6];
 
-                VienosDienosPardavimuListas.Add(new PrekiuPardavimai(diena, laikas, pavadiniams, kiekis, suma));
+                VienosDienosPardavimuListas.Add(new PrekiuPardavimai(diena, laikas, pavadiniams, kiekis, suma, darbuotojas));
             }
         }
 
