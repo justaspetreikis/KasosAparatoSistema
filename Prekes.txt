@@ -8,6 +8,5 @@ admin 101 Kefyras 1,55 Pienas
 admin 999 Bandele 2,55 Bakaleja
 Jonelis 11 Duonele 2,33 Bakaleja
 admin 6666 Sesetas 6,66 Vaisiai
-test 4770166219528 VanilinisPlombyras 0,44 Ledai
-test 12345 ŠokoladinisPlombyras 0,46 Ledai
 Rokas 3 Jore 2,55 Bakaleja
+Jurgis 123 Kibiras 55,5 Pramonė

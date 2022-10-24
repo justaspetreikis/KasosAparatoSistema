@@ -11,9 +11,9 @@ namespace TestProject1
         {
             // Arrange
 
-            int barkodas = 2;
+            int barkodas = 1;
             PrekesRepozitorija prekesRepozitoria = new PrekesRepozitorija();
-            var expected = "Duona";
+            var expected = "Batonas";
 
             //Act
             var actual = (prekesRepozitoria.Retrieve(barkodas).Pavadinimas).ToString();
