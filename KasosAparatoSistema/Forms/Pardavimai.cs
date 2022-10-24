@@ -20,11 +20,6 @@ namespace KasosAparatoSistema
         public Pardavimai()
         {
             InitializeComponent();
-            //PrekesRepozitorija prekesRepozitorija = new PrekesRepozitorija();
-            //var listas = prekesRepozitorija.Retrieve();
-            //comboBox1.DataSource = listas;
-            //comboBox1.DisplayMember = "Barkodas";
-
         }
 
         private void button_ieskoti_Click(object sender, EventArgs e)
@@ -57,6 +52,13 @@ namespace KasosAparatoSistema
             {
                 return;
             }
+            int kiekis;
+            bool arGeraiIvestasKiekis = int.TryParse(tb_vienetuKiekis.Text, out kiekis);
+            if(arGeraiIvestasKiekis == false)
+            {
+                MessageBox.Show("blogai nurodytas kiekis");
+                return;
+            }
 
             dataGridViewPpardavimai.Rows.Add(clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString());
 
@@ -64,13 +66,21 @@ namespace KasosAparatoSistema
             string.Format("{0} {1} {2} {3} {4}\n",clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString()));
             File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Pardavimai" + DateTime.Today.ToString("yyyyMMdd") + ".txt",
             string.Format("{0} {1} {2} {3} {4}\n", clock.Text.ToString(), tb_pavadinimas.Text, tb_kaina.Text.ToString(), tb_vienetuKiekis.Text.ToString(), (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString())) ;
+            File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Suma.txt",
+            String.Format("{0}\n", (double.Parse(tb_vienetuKiekis.Text) * double.Parse(tb_kaina.Text)).ToString()));
 
-            double sum = 0;
-            double vienetas = double.Parse(tb_vienetuKiekis.Text);
-            double kaina = double.Parse(tb_kaina.Text);
-            sum += vienetas * kaina; //kaip paskaičiuoti bendrą prekių sumą
+            string sumosFailas = @"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Suma.txt";
+            string[] sumuListas = File.ReadAllLines(sumosFailas);
+            List <double> sumos = new List<double>();
+            foreach (string suma in sumuListas)
+            {
+                double sum = double.Parse(suma.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                sumos.Add(sum);
+            }
 
-            tb_suma.Text = sum.ToString();
+            double bendraSuma = sumos.Sum(x => Convert.ToDouble(x));
+
+            tb_suma.Text = bendraSuma.ToString();
             tb_pavadinimas.Clear();
             tb_kaina.Clear();
             tb_iveskiteBarkoda.Clear();
@@ -96,7 +106,7 @@ namespace KasosAparatoSistema
             {
                 dataGridViewPpardavimai.Rows.Remove(dataGridViewPpardavimai.Rows[0]);
             }
-
+            File.Delete(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Suma.txt");
             tb_suma.Clear();
         }
 
@@ -120,6 +130,11 @@ namespace KasosAparatoSistema
         private void Pardavimai_Load(object sender, EventArgs e)
         {
                 tb_vartotojas.Text = Prisijungimas.VartotojoId;
+        }
+
+        private void tb_iveskiteBarkoda_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

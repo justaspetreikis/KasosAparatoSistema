@@ -63,6 +63,7 @@
             this.tb_iveskiteBarkoda.Name = "tb_iveskiteBarkoda";
             this.tb_iveskiteBarkoda.Size = new System.Drawing.Size(203, 27);
             this.tb_iveskiteBarkoda.TabIndex = 0;
+            this.tb_iveskiteBarkoda.TextChanged += new System.EventHandler(this.tb_iveskiteBarkoda_TextChanged);
             // 
             // label_iveskitBarkoda
             // 

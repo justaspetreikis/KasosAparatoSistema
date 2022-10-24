@@ -84,6 +84,7 @@
             this.button_registracija.TabIndex = 5;
             this.button_registracija.Text = "Registracija";
             this.button_registracija.UseVisualStyleBackColor = true;
+            this.button_registracija.Click += new System.EventHandler(this.button_registracija_Click);
             // 
             // Prisijungimas
             // 

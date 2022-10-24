@@ -18,13 +18,14 @@ namespace KasosAparatoSistema.Repozitorijos
             string[] prekes = File.ReadAllLines(path);
             foreach (string preke in prekes)
             {
-                string darbuotojoVardas = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0];
-                long prekesbarkodas = long.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1]);
-                string prekesPavadinimas =preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2];
-                double prekesKaina = double.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[3]);
-                string prekesKategorija = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[4];
 
-                PrekiuListas.Add(new Prekes(darbuotojoVardas, prekesbarkodas, prekesPavadinimas, prekesKaina, prekesKategorija));
+                 string darbuotojoVardas = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0];
+                 long prekesbarkodas = long.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1]);
+                 string prekesPavadinimas = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[2];
+                 double prekesKaina = double.Parse(preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[3]);
+                 string prekesKategorija = preke.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[4];
+
+                 PrekiuListas.Add(new Prekes(darbuotojoVardas, prekesbarkodas, prekesPavadinimas, prekesKaina, prekesKategorija));
             }
 
         }

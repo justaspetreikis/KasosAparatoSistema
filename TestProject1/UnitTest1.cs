@@ -1,6 +1,4 @@
-using KasosAparatoSistema.Repozitorijos;
-
-namespace KasosAparatoSistemaTests
+namespace TestProject1
 {
     public class UnitTest1
     {

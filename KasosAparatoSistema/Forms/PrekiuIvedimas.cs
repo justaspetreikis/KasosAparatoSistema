@@ -3,6 +3,7 @@ using KasosAparatoSistema.Models;
 using KasosAparatoSistema.Repozitorijos;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,32 +24,51 @@ namespace KasosAparatoSistema
         public PrekiuIvedimas()
         {
             InitializeComponent();
-           
         }
         private void button_prideti_Click(object sender, EventArgs e) //leisti ivesti tik gerus duomenis
         {
+            long barkodas;
+            double kaina;
+            var prekiuRepozitorija = new PrekesRepozitorija();
+            var prekiuListas = prekiuRepozitorija.Retrieve();
+            bool ivestaGeraKaina = double.TryParse(txt_kaina.Text, out kaina);
+            bool ivestasGerasBarkodas = long.TryParse(txt_barkodas.Text, out barkodas);
+            bool barkodasEgzistuoja = prekiuListas.Any(a => a.Barkodas == barkodas);
+            if (ivestasGerasBarkodas == false)
+            {
+                MessageBox.Show("Blogai įvestas barkodas");
+                return;
+            }
+
+            if (barkodasEgzistuoja == true)
+            {
+                MessageBox.Show("Prekė su tokiu barkodu jau egzistuoja");
+                return;
+            }
+
+            if (ivestaGeraKaina == false)
+            {
+                MessageBox.Show("Blogai nurodyta prekės kaina (kainai įvesti naudojamas kablelis)");
+                return;
+            }
 
             dataGridView1.Rows.Add(tb_vartotojas.Text, txt_barkodas.Text, txt_pavadinimas.Text, txt_kaina.Text, comboBox1.Text);
             File.AppendAllText(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Prekes.txt",
-                string.Format("\n{0} {1} {2} {3} {4}", tb_vartotojas.Text, txt_barkodas.Text, txt_pavadinimas.Text, txt_kaina.Text, comboBox1.Text));
+                string.Format("{0} {1} {2} {3} {4}\n", tb_vartotojas.Text, txt_barkodas.Text, txt_pavadinimas.Text, txt_kaina.Text, comboBox1.Text));
         }
 
         private void Istrinti()
         {
 
-            int rowIndex = dataGridView1.CurrentCell.RowIndex;
-            dataGridView1.Rows.RemoveAt(rowIndex);
+            int pasirinktaEilute = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows.RemoveAt(pasirinktaEilute);
             List<string> lines = new List<string>(File.ReadAllLines(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Prekes.txt"));
-            lines.RemoveAt(rowIndex);
+            lines.RemoveAt(pasirinktaEilute);
             File.WriteAllLines(@"C:\Users\petre\Desktop\CodeAcademy\KasosAparatoSistema\Prekes.txt", lines.ToArray());
         }
         private void button_istrinti_Click(object sender, EventArgs e)
         {
             Istrinti();
-        }
-        private void tb_vartotojas_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void KasosAparatoValdymas_Load(object sender, EventArgs e)
@@ -76,7 +96,6 @@ namespace KasosAparatoSistema
                 }
 
                 dataGridView1.Rows.Add((row));
-
             }
         }
 
@@ -87,7 +106,7 @@ namespace KasosAparatoSistema
             pasirinkimai.ShowDialog();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void txt_barkodas_TextChanged(object sender, EventArgs e)
         {
 
         }

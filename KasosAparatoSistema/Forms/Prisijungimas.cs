@@ -15,8 +15,6 @@ namespace KasosAparatoSistema
         }
         public void buttonPrisijungti_Click(object sender, EventArgs e)
         {
-            var prekesRepozitorija = new PrekesRepozitorija();
-
             string prisijungimoVardas = tbVartotojoVardas.Text;
             string slaptazodis = tbSlaptazodis.Text;
             var _darbuotojasRepozitorija = new DarbuotojasRepozitorija();
@@ -27,14 +25,9 @@ namespace KasosAparatoSistema
                 if (slaptazodis == reikalingasSlaptazodis)
                 {
                     VartotojoId = tbVartotojoVardas.Text.ToString();
-                    //Pardavimai pardavimai = new Pardavimai();
-                    //PrekiuIvedimas prekiuPridejimas = new PrekiuIvedimas();
                     var pasirinkimai = new form_pasirinkimai();
                     this.Hide();
                     pasirinkimai.ShowDialog();
-                    //prekiuPridejimas.ShowDialog();
-                    //pardavimai.ShowDialog();
-                    this.Close();
 
                 }
                 else
@@ -53,6 +46,14 @@ namespace KasosAparatoSistema
         private void Prisijungimas_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void button_registracija_Click(object sender, EventArgs e)
+        {
+            var registracija = new Registracija();
+            this.Hide();
+            registracija.ShowDialog();
+          
         }
     }
 }

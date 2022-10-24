@@ -115,6 +115,7 @@
             this.txt_barkodas.Name = "txt_barkodas";
             this.txt_barkodas.Size = new System.Drawing.Size(148, 27);
             this.txt_barkodas.TabIndex = 6;
+            this.txt_barkodas.TextChanged += new System.EventHandler(this.txt_barkodas_TextChanged);
             // 
             // txt_kaina
             // 
@@ -143,6 +144,7 @@
             this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(12, 116);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(726, 322);
@@ -153,6 +155,7 @@
             this.Column1.HeaderText = "Darbuotojas";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 120;
             // 
             // Column2
@@ -160,6 +163,7 @@
             this.Column2.HeaderText = "Barkodas";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
             // Column3
@@ -167,6 +171,7 @@
             this.Column3.HeaderText = "Pavadinimas";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
             // 
             // Column4
@@ -174,6 +179,7 @@
             this.Column4.HeaderText = "Kaina";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
             // Column5
@@ -181,6 +187,7 @@
             this.Column5.HeaderText = "Kategorija";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Width = 125;
             // 
             // prekesRepozitorijaBindingSource
@@ -203,7 +210,6 @@
             this.tb_vartotojas.ReadOnly = true;
             this.tb_vartotojas.Size = new System.Drawing.Size(110, 27);
             this.tb_vartotojas.TabIndex = 12;
-            this.tb_vartotojas.TextChanged += new System.EventHandler(this.tb_vartotojas_TextChanged);
             // 
             // button_grižti
             // 
@@ -230,7 +236,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 28);
             this.comboBox1.TabIndex = 16;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // PrekiuIvedimas
             // 
